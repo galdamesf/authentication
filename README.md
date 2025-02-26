@@ -56,6 +56,9 @@ Todos los datos de registro, inicio de sesión y cierre de sesión serán impres
 - verificar los datos de la tabla: SELECT * FROM users;
 - ver detalles de la tabla: DESCRIBE users;
 - Salir de MySQL: EXIT;
+- reiniciar el servidor MySQL: sudo systemctl restart mysql
+- revisar el uso de la base de datos: SHOW PROCESSLIST;
+
 
 5. Guardar Proyecto
 - git init
