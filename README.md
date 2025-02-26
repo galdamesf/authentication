@@ -1,7 +1,7 @@
 # Sistema de Autenticación con Python, Flask y React.js
 
-En el siguiente proyecto se implementa un sistema de autenticación usando Flask para el Backend y React Vite para el Frontend. Con este sistema de autenticación el usuario puede registrarse con sus datos e iniciar sesión con mail y password, para luego ser dirigido a una pagina privada. 
-Todos los datos de registro, inicio de sesión y cierre de sesión serán impresos en la consola, incluido el token.
+En el siguiente proyecto se implementa un sistema de autenticación usando Flask para el Backend y React Vite para el Frontend. Con este sistema de autenticación el usuario puede registrarse con sus datos e iniciar sesión con mail y password, para luego ser dirigido a una pagina privada. El usuario, al ser registrado, queda guardado en la base de datos, ya que se integró MySQL.
+Todos los datos de registro, inicio de sesión y cierre de sesión serán impresos en la consola, incluido el token.  
 
 # Tecnologías Utilizadas:
 
@@ -11,6 +11,7 @@ Todos los datos de registro, inicio de sesión y cierre de sesión serán impres
 - Flask
 - Axios
 - React Router DOM
+- MySQL
 
 # Configuración del Proyecto:
 
