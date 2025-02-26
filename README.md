@@ -1,8 +1,48 @@
-# React + Vite
+# Sistema de Autenticación con Python, Flask y React.js
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+En el siguiente proyecto se implementa un sistema de autenticación usando Flask para el Backend y React Vite para el Frontend. Con este sistema de autenticación el usuario puede registrarse con sus datos e iniciar sesión con mail y password, para luego ser dirigido a una pagina privada. 
+Todos los datos de registro, inicio de sesión y cierre de sesión serán impresos en la consola, incluido el token.
 
-Currently, two official plugins are available:
+# Tecnologías Utilizadas:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React
+- Vite
+- Bootstrap
+- Flask
+- Axios
+- React Router DOM
+
+# Configuración del Proyecto:
+
+1. Crear carpeta para el proyecto
+- git clone https://github.com/galdamesf/authentication.git
+- cd Ultimo Trabajo
+- ls Autentication
+- cd Autentication
+
+2. Configuración del Frontend
+- Instalación de Dependencias
+- bash
+- cd frontend
+- npm install
+- Ejecutar el Proyecto
+- bash
+- npm run dev
+- El frontend debería estar corriendo en http://localhost:5173.
+
+3. Configuración del Backend
+- Instalación de Dependencias
+- bash
+- cd backend
+- pip install flask flask-cors
+- Ejecutar el Servidor
+- bash
+- python app.py
+- El backend debería estar corriendo en http://localhost:5001.
+
+4. Guardar Proyecto
+- git init
+- git add .
+- git commit -m "Proyecto terminado"
+- git push -u origin main
+
