@@ -8,31 +8,49 @@ const Login = ({ setIsAuthenticated }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false); // Estado de carga para el login
+  const [loadingRegister, setLoadingRegister] = useState(false); // Estado de carga para el registro
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setLoading(true); // Activa el estado de carga para el login
+    setError(""); // Resetea errores anteriores
+
     try {
       const response = await axios.post("http://localhost:5001/login", {
         email,
         password,
       });
+
       if (response.status === 200) {
         setIsAuthenticated(true);
         const { token } = response.data;
         localStorage.setItem("authToken", token);
         console.log(`Usuario ${email} ha iniciado sesión correctamente.`);
-        console.log(`Token recibido: ${token}`); // Muestra el token en la consola del navegador
-        navigate("/private");
+        console.log(`Token recibido: ${token}`);
+
+        setTimeout(() => {
+          setLoading(false); // Desactiva el estado de carga antes de redirigir
+          navigate("/private");
+        }, 1500); // Simula un retraso de 1.5 segundos
       }
     } catch (error) {
       console.error("Error iniciando sesión:", error);
       setError("Correo o contraseña incorrectos");
+      setLoading(false); // Desactiva el estado de carga en caso de error
     }
   };
 
-  const handleSignUpClick = () => {
-    console.log("Usuario ha hecho clic en 'Regístrate aquí'");
+  const handleRegisterClick = (e) => {
+    e.preventDefault(); // Prevenir la navegación inmediata
+    setLoadingRegister(true); // Activa el estado de carga para el registro
+
+    console.log("Redirigiendo al registro...");
+    setTimeout(() => {
+      setLoadingRegister(false); // Desactiva el estado de carga después de 3 segundos
+      navigate("/signup"); // Navegar a la página de registro
+    }, 3000); // Retraso de 3 segundos
   };
 
   return (
@@ -51,6 +69,7 @@ const Login = ({ setIsAuthenticated }) => {
               placeholder="Correo"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              disabled={loading || loadingRegister} // Deshabilita si está cargando
             />
           </div>
           <div className="form-group">
@@ -64,16 +83,43 @@ const Login = ({ setIsAuthenticated }) => {
               placeholder="Contraseña"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              disabled={loading || loadingRegister} // Deshabilita si está cargando
             />
           </div>
-          <button type="submit" className="btn btn-primary">
-            Iniciar Sesión
+
+          {/* Botón con spinner de carga */}
+          <button type="submit" className="btn btn-primary" disabled={loading}>
+            {loading ? (
+              <>
+                <span
+                  className="spinner-grow spinner-grow-sm"
+                  role="status"
+                  aria-hidden="true"
+                ></span>
+                Cargando...
+              </>
+            ) : (
+              "Iniciar Sesión"
+            )}
           </button>
+
           {error && <p className="text-danger mt-3">{error}</p>}
+
           <p className="mt-3">
             ¿No tienes una cuenta?{" "}
-            <Link to="/signup" onClick={handleSignUpClick}>
-              Regístrate aquí
+            <Link to="/signup" onClick={handleRegisterClick}>
+              {loadingRegister ? (
+                <>
+                  <span
+                    className="spinner-grow spinner-grow-sm"
+                    role="status"
+                    aria-hidden="true"
+                  ></span>
+                  Cargando...
+                </>
+              ) : (
+                "Regístrate aquí"
+              )}
             </Link>
           </p>
         </form>

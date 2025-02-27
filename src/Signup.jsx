@@ -52,6 +52,11 @@ const Signup = () => {
     }
   };
 
+  const handleGoBack = () => {
+    console.log("Volviste al Login"); // Mensaje en consola al hacer clic en el botón "Volver"
+    navigate("/login"); // Redirige al login
+  };
+
   return (
     <div className="auth-container">
       <div className="auth-box">
@@ -130,6 +135,11 @@ const Signup = () => {
           {error && <p className="text-danger mt-3">{error}</p>}
           {success && <p className="text-success mt-3">{success}</p>}
         </form>
+
+        {/* Botón Volver */}
+        <button onClick={handleGoBack} className="btn btn-secondary mt-3">
+          Volver
+        </button>
       </div>
     </div>
   );
