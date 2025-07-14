@@ -9,6 +9,7 @@ import Login from "./Login";
 import Private from "./Private";
 import { useState } from "react";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -38,6 +39,7 @@ function App() {
           <Route path="*" element={<Navigate to="/login" />} />
         </Routes>
       </div>
+      <Footer />
     </Router>
   );
 }

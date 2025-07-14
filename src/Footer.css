@@ -1,0 +1,78 @@
+/* Estilos principales del footer */
+:root {
+  --primary-gradient: linear-gradient(135deg, #667eea, #4ba252);
+}
+
+.footer-section {
+  background: var(--primary-gradient);
+  color: white; /* Texto blanco */
+  font-family: "Arial", sans-serif;
+  padding: 10px 0;
+  width: 100%;
+}
+
+.footer-section a {
+  color: white; /* Enlaces en blanco */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+  color: #62a773; /* Color verde al pasar el cursor */
+}
+
+.footer-section .container {
+  padding: 0 2px;
+}
+
+.footer-section .row {
+  margin-bottom: 2px;
+}
+
+/* Sección inferior del footer */
+.footer-bottom {
+  background-color: #1a1e21;
+  color: white;
+  padding: 20px 0;
+}
+
+.footer-bottom a {
+  color: #4caf50;
+}
+
+.footer-bottom a:hover {
+  color: #ffffff;
+}
+
+.footer-section .social-icons a:hover {
+  transform: scale(1.1);
+  color: #2f3dd1; /* Azul al pasar el cursor */
+}
+
+/* Ajustes para dispositivos móviles */
+@media (max-width: 768px) {
+  .footer-section {
+    text-align: center;
+  }
+
+  .footer-section .row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-section .col-md-2 {
+    margin-bottom: 10px;
+  }
+
+  .footer-section .social-icons {
+    margin-top: 15px;
+  }
+}
+
+/* Centrar la imagen del logo en el footer */
+.footer-logo {
+  display: block;
+  margin: 10px auto;
+  max-width: 150px;
+  height: auto;
+}
