@@ -2,7 +2,8 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import "./Auth.css";
+import { Lock } from "lucide-react";
+import "../Auth.css";
 
 const Login = ({ setIsAuthenticated }) => {
   const [email, setEmail] = useState("");
@@ -60,13 +61,13 @@ const Login = ({ setIsAuthenticated }) => {
         <form onSubmit={handleLogin}>
           <div className="form-group">
             <label htmlFor="email" className="form-label">
-              Correo
+              Email
             </label>
             <input
               type="email"
               className="form-control"
               id="email"
-              placeholder="Correo"
+              placeholder="tu@email.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               disabled={loading || loadingRegister} // Deshabilita si está cargando
@@ -76,15 +77,18 @@ const Login = ({ setIsAuthenticated }) => {
             <label htmlFor="password" className="form-label">
               Contraseña
             </label>
-            <input
-              type="password"
-              className="form-control"
-              id="password"
-              placeholder="Contraseña"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              disabled={loading || loadingRegister} // Deshabilita si está cargando
-            />
+            <div className="input-with-icon">
+              <Lock size={18} color="gray" className="icon" />
+              <input
+                type="password"
+                className="form-control"
+                id="password"
+                placeholder="Tu contraseña"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                disabled={loading || loadingRegister} // Deshabilita si está cargando
+              />
+            </div>
           </div>
 
           {/* Botón con spinner de carga */}
@@ -106,7 +110,7 @@ const Login = ({ setIsAuthenticated }) => {
           {error && <p className="text-danger mt-3">{error}</p>}
 
           <p className="mt-3">
-            ¿No tienes una cuenta?{" "}
+            ¿No tienes una cuenta?
             <Link to="/signup" onClick={handleRegisterClick}>
               {loadingRegister ? (
                 <>
@@ -118,7 +122,7 @@ const Login = ({ setIsAuthenticated }) => {
                   Cargando...
                 </>
               ) : (
-                "Regístrate aquí"
+                "Crear una cuenta"
               )}
             </Link>
           </p>

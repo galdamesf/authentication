@@ -4,18 +4,19 @@ import {
   Routes,
   Navigate,
 } from "react-router-dom";
-import Signup from "./Signup";
-import Login from "./Login";
-import Private from "./Private";
+import Signup from "./components/Signup";
+import Login from "./components/Login";
+import Private from "./components/Private";
 import { useState } from "react";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
+import MyNavbar from "./components/MyNavbar";
+import Footer from "./components/Footer";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   return (
     <Router>
+      <MyNavbar />
       <div className="container">
         <Routes>
           <Route path="/signup" element={<Signup />} />
@@ -28,8 +29,7 @@ function App() {
             element={
               isAuthenticated ? (
                 <>
-                  <Navbar setIsAuthenticated={setIsAuthenticated} />
-                  <Private />
+                  <Private setIsAuthenticated={setIsAuthenticated} />
                 </>
               ) : (
                 <Navigate to="/login" />

@@ -1,5 +1,5 @@
-import "./Footer.css";
-import logo from "./img/logo.png";
+import "../Footer.css";
+import logo from "../img/logo.png";
 
 const Footer = () => {
   return (
@@ -58,13 +58,12 @@ const Footer = () => {
               <div className="col-lg-8"></div>
             </div>
           </section>
-        </div>
-
-        <div className="footer-bottom text-center">
-          <p>
-            © 2024 Copyright: &nbsp;
-            <a href="#">EcoCycle</a>
-          </p>
+          <div className="footer-bottom text-center">
+            <p>
+              © 2024 Copyright: &nbsp;
+              <a href="#">EcoCycle</a>
+            </p>
+          </div>
         </div>
       </footer>
     </div>

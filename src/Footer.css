@@ -30,14 +30,8 @@
 }
 
 /* Sección inferior del footer */
-.footer-bottom {
-  background-color: #1a1e21;
-  color: white;
-  padding: 20px 0;
-}
-
 .footer-bottom a {
-  color: #4caf50;
+  color: darkgrey;
 }
 
 .footer-bottom a:hover {
