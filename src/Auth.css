@@ -18,12 +18,19 @@
 
 .auth-box a {
   text-decoration: none;
+  color: #1e3a8a;
+  border-color: #1e3a8a;
+}
+.auth-box a:hover {
+  color: #2563eb;
+  border-color: #2563eb;
 }
 
 .auth-box p {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 10px;
 }
 
 .auth-box p a {
@@ -45,15 +52,20 @@
 .auth-box .form-group {
   width: 100%;
   max-width: 300px;
-  text-align: left; /* Para que los labels queden alineados a la izquierda */
+  text-align: left;
   margin-bottom: 1rem;
 }
 
 .auth-box .form-control {
   border-radius: 5px;
   width: 100%;
-  max-width: 300px; /* Aumenta el ancho */
+  max-width: 300px;
   padding: 10px;
+}
+
+.auth-box .btn-primary {
+  background-color: #1e3a8a;
+  border-color: #1e3a8a;
 }
 
 .auth-box .btn {
@@ -63,19 +75,20 @@
   border-radius: 5px;
 }
 
-.auth-box p {
-  margin-top: 10px;
-}
-
-.input-with-icon {
+/* Icono dentro del input (candado / mail) */
+.input-with-icon,
+.input-mail-icon {
   position: relative;
 }
 
-.input-with-icon .form-control {
+.input-with-icon .form-control,
+.input-mail-icon .form-control {
   padding-left: 35px;
+  padding-right: 35px; /* espacio para ícono derecho (ojo) */
 }
 
-.input-with-icon .icon {
+.input-with-icon .icon,
+.input-mail-icon .icon {
   position: absolute;
   top: 50%;
   left: 12px;
@@ -85,8 +98,20 @@
   z-index: 2;
 }
 
-input.with-icon {
-  padding-left: 36px; /* Espacio suficiente para el ícono dentro del input */
-  position: relative;
-  z-index: 1;
+/* Botón para mostrar u ocultar la contraseña */
+.toggle-password-btn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #1e3a8a;
+  font-size: 1rem;
+  cursor: pointer;
+  z-index: 3;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

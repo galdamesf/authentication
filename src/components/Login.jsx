@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import { Lock } from "lucide-react";
+import { Lock, Mail, Eye, EyeOff } from "lucide-react";
 import "../Auth.css";
 
 const Login = ({ setIsAuthenticated }) => {
@@ -11,6 +11,7 @@ const Login = ({ setIsAuthenticated }) => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false); // Estado de carga para el login
   const [loadingRegister, setLoadingRegister] = useState(false); // Estado de carga para el registro
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -51,7 +52,7 @@ const Login = ({ setIsAuthenticated }) => {
     setTimeout(() => {
       setLoadingRegister(false); // Desactiva el estado de carga después de 3 segundos
       navigate("/signup"); // Navegar a la página de registro
-    }, 3000); // Retraso de 3 segundos
+    }, 1000); // Retraso de 1 segundo
   };
 
   return (
@@ -63,15 +64,18 @@ const Login = ({ setIsAuthenticated }) => {
             <label htmlFor="email" className="form-label">
               Email
             </label>
-            <input
-              type="email"
-              className="form-control"
-              id="email"
-              placeholder="tu@email.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              disabled={loading || loadingRegister} // Deshabilita si está cargando
-            />
+            <div className="input-mail-icon">
+              <Mail size={18} color="gray" className="icon" />
+              <input
+                type="email"
+                className="form-control"
+                id="email"
+                placeholder="tu@email.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                disabled={loading || loadingRegister} // Deshabilita si está cargando
+              />
+            </div>
           </div>
           <div className="form-group">
             <label htmlFor="password" className="form-label">
@@ -80,7 +84,7 @@ const Login = ({ setIsAuthenticated }) => {
             <div className="input-with-icon">
               <Lock size={18} color="gray" className="icon" />
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 className="form-control"
                 id="password"
                 placeholder="Tu contraseña"
@@ -88,6 +92,17 @@ const Login = ({ setIsAuthenticated }) => {
                 onChange={(e) => setPassword(e.target.value)}
                 disabled={loading || loadingRegister} // Deshabilita si está cargando
               />
+              <button
+                type="button"
+                className="toggle-password-btn"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? (
+                  <EyeOff size={18} color="gray" />
+                ) : (
+                  <Eye size={18} color="gray" />
+                )}
+              </button>
             </div>
           </div>
 
